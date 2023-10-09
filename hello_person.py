@@ -4,6 +4,6 @@
 
 name = input("What's your name? ")
 def hello(name):
-    print("Hello " + name + ". o/")
+    print(f"Hello {name}. o/")
 
 hello(name)
