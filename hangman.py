@@ -40,11 +40,11 @@ def hangman():
     print("====================================================================================================================")
 
     # Create word list
-    word_list = ["pickles", "stank", "heck", "meat", "bologna"]
+    word_list = ["pickles", "stank", "heck", "meat", "bologna", "apple", "banana"]
     
     # Randomly choose a word from the list you have created
     random_word = random.choice(word_list)
-    # print(random_word)
+    print(random_word)
     
     # Ask the user to guess a letter
     user_guesses = []
@@ -71,5 +71,13 @@ def hangman():
         else:
             print(f"'{letter_choice}' is not part of the word! You lose. He dies. Better luck next time.") 
             break
+
+    # Play again or exit the game
+    go_again = input("Would you like to play again? y / n :")
+
+    if go_again == "y":
+        hangman()
+    else:
+        print("That's enough executions for one day. See you next time.")
 
 hangman()
