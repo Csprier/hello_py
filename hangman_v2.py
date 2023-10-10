@@ -36,39 +36,36 @@ def hangman():
     print(random_word)
     
     # Make a pre-existing dict of the word to cross reference
-    random_word_dict = Counter()
+    random_word_dict = Counter(random_word)
+    print(f"random_word_dict: ", random_word_dict)
+
     # Make a counter for the user guesses key-value/ letter-frequency
     user_guesses = Counter()
 
-
-    for letter in random_word:
-        # Prevent length > 1 in input
-        while True:
+    # for i in random_word:
+        # while True:
             # Ask the user to guess a letter
-            guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
-
-            if len(guess) == 1:
-                user_guesses[guess] += 1
-                random_word_dict[letter] += 1
-                break
-            else:
-                print("Single letters only.")
-                continue
+            # guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
+            # if len(guess) == 1:
+                # for letter, freq in random_word_dict.items():
+                #     print(letter, freq)
+                    # -
+                    # THIS IS WHERE THE PROBLEM IS = need to figure out how to alter user_guesses's frequency of a letter to predict that a letter doesnt need to be used again
+                    # -
+                    # if user_guesses.get(freq) > 1:
+                    #     print("The guessed letter occurs more than once.")
+                    # else:
+                    #     user_guesses[guess] += 1
+                    #     break
+            # else:
+            #     print("Single letters only.")
+            #     continue
 
     print(f"user_guesses: ", user_guesses)
-    print(f"random_word_dict: ", random_word_dict)
 
     # ===============================================================================================
-    # Loop over random_word_dict and check if the frequency of guess in user_guesses[] > 1
-    # for guess, frequency in user_guesses.items():
-    #     print(f"Guess: {key}. Frequency: {value}.")
-    #     for letter, frequency in random_word_dict.items():
-    #         # print(f"Letter: '{letter}'. Frequency: {frequency}")
-    #         if random_word_dict[frequency] > 1:
-    #             print(f"random_word_dict[frequency] > 1. Increase {user_guesses[letter]} to {frequency}")
-    #         else:
-    #             continue
-                
+    
+             
 
     # ===============================================================================================    
     # Check if the dict's are the same
