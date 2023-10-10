@@ -46,12 +46,12 @@ def hangman():
     random_word = random.choice(word_list)
     print(random_word)
     
-    # Ask the user to guess a letter
     user_guesses = []
     user_letters = ""
     
     # Check if the letter is in the word
     for i in random_word:
+        # Ask the user to guess a letter
         letter_choice = input("Choose a letter! ").lower() # Bonus - make the input lower case
         user_guesses.append(letter_choice)
         # Make the list of letters into a single string
@@ -73,11 +73,14 @@ def hangman():
             break
 
     # Play again or exit the game
-    go_again = input("Would you like to play again? y / n :")
+    play_again = input("Would you like to play again? y / n : ")
 
-    if go_again == "y":
+    if play_again == "y":
         hangman()
     else:
         print("That's enough executions for one day. See you next time.")
 
 hangman()
+
+# What am I trying to do?
+# if a word has multiple instances of the same letter, it needs to account for it
