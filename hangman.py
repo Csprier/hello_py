@@ -44,7 +44,7 @@ def hangman():
     
     # Randomly choose a word from the list you have created
     random_word = random.choice(word_list)
-    print(random_word)
+    # print(random_word)
     
     # Ask the user to guess a letter
     user_guesses = []
