@@ -42,24 +42,24 @@ def hangman():
     # Make a counter for the user guesses key-value/ letter-frequency
     user_guesses = Counter()
 
-    # for i in random_word:
-        # while True:
+    for i in random_word:
+        while True:
             # Ask the user to guess a letter
-            # guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
-            # if len(guess) == 1:
-                # for letter, freq in random_word_dict.items():
-                #     print(letter, freq)
-                    # -
-                    # THIS IS WHERE THE PROBLEM IS = need to figure out how to alter user_guesses's frequency of a letter to predict that a letter doesnt need to be used again
-                    # -
-                    # if user_guesses.get(freq) > 1:
-                    #     print("The guessed letter occurs more than once.")
-                    # else:
-                    #     user_guesses[guess] += 1
-                    #     break
-            # else:
-            #     print("Single letters only.")
-            #     continue
+            guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
+            if len(guess) == 1:
+                 # need to limit user_guesses to not exceed values of random_word_dict
+                    for letter, frequency in user_guesses.items():
+                        if letter in random_word_dict and random_word_dict[letter] >= user_guesses[letter]:
+                            print(f"The letter occurs more than once. You do not need to guess this letter again. :)")
+                            print(f"user_guesses[letter]: {user_guesses[letter]} = random_word_dict[letter]: {random_word_dict[letter]}")
+                            user_guesses[letter] = random_word_dict[letter]
+                            break
+                        else:
+                            user_guesses[guess] += 1
+                            break
+            else:
+                print("Single letters only.")
+                continue
 
     print(f"user_guesses: ", user_guesses)
 
