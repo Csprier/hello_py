@@ -48,12 +48,16 @@ def hangman():
             guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
             if len(guess) == 1:
                  # need to limit user_guesses to not exceed values of random_word_dict
-                    for letter, frequency in user_guesses.items():
-                        if letter in random_word_dict and random_word_dict[letter] >= user_guesses[letter]:
-                            print(f"The letter occurs more than once. You do not need to guess this letter again. :)")
-                            print(f"user_guesses[letter]: {user_guesses[letter]} = random_word_dict[letter]: {random_word_dict[letter]}")
-                            user_guesses[letter] = random_word_dict[letter]
-                            break
+                    for letter in user_guesses.items():
+                        if letter in random_word_dict:
+                            if random_word_dict[letter] > user_guesses[letter]:
+                                print(f"The letter occurs more than once. You do not need to guess this letter again. :)")
+                                user_guesses[letter] = random_word_dict[letter]
+                                break
+                            elif random_word_dict[letter] < user_guesses[letter]:
+                                print(f"No sense in exceeding the original word count.")
+                                user_guesses[letter] = random_word_dict[letter]
+                                break
                         else:
                             user_guesses[guess] += 1
                             break
