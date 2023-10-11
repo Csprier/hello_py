@@ -44,16 +44,16 @@ def hangman():
                 # If yes, win the game
             if set(user_guesses.items()) == set(random_word_dict.items()):
                 print(f"Congratulations! You won the game! The man's life is spared!")
-                break
+                return
             
             # If a user runs out of chances to guess, they lose!
             if chance_count == 0:
-                print(f"The man hangs because of your inability to guess correctly! The word was {random_word}")
-                break
+                print(f"The man hangs because of your inability to guess correctly! The word was '{random_word}'.")
+                return
 
             # Ask the user to guess a letter
             guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
-            
+
             # If the length of the guess is 1, continue.
             if len(guess) == 1:
                 # Have we guessed this letter already?
