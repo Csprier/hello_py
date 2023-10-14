@@ -19,7 +19,8 @@ def hangman():
     print("======================================================================================")
     # ===============================================================================================
     # Create word list
-    word_list = ["pickles", "stank", "heck", "meat", "bologna", "apple", "banana"]
+    # word_list = ["pickles", "stank", "heck", "meat", "bologna", "apple", "banana"]
+    word_list = ["woot"]
     
     # Randomly choose a word from the list you have created
     random_word = random.choice(word_list)
@@ -60,6 +61,7 @@ def hangman():
                     hangman()
                 elif play_again == "n":
                     print("That's enough executions for one day. See you next time.")
+                    return
                 # return # hard exit loop and function
             
             # If a user runs out of chances to guess, they lose!
@@ -87,6 +89,7 @@ def hangman():
                     print('-------------------------------------------')
                     print(f"- You've guessed '{guess}' already! Guess correctly before you run out of chances!")
                     print('-------------------------------------------')
+                    print(f"Board: {board}")
                     continue
 
                 # Is the guess part of the random word?
@@ -97,12 +100,18 @@ def hangman():
                     print(f"- You successfully guessed a letter in the word!")
                     print('-------------------------------------------')
                     user_guesses[guess] = random_word_dict[guess]
+                    for position in range(len(random_word)):
+                        letter = random_word[position]
+                        if letter == guess:
+                            board[position] = letter
+                    print(f"Board: {board}")
                     continue
                 else: # if no
                     print('-------------------------------------------')
                     print(f"- Sorry! That letter is not part of the word!")
                     print('-------------------------------------------')
                     chance_count -= 1
+                    print(f"Board: {board}")
                     continue
             # If the length of the guess > 1, it can't be accepted as a valid input.
             else:
