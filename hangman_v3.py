@@ -54,14 +54,26 @@ def hangman():
                 print('-------------------------------------------')
                 print(f"- ! Congratulations! You won the game! The man's life is spared! !")
                 print('-------------------------------------------')
-                return # hard exit loop and function
+                # Play again or exit the game
+                play_again = input("Would you like to play again? y / n : ")
+                if play_again == "y":
+                    hangman()
+                elif play_again == "n":
+                    print("That's enough executions for one day. See you next time.")
+                # return # hard exit loop and function
             
             # If a user runs out of chances to guess, they lose!
             if chance_count == 0:
                 print('--------------------------------------------------------------------------------------------------')
                 print(f"- X The man hangs because of your inability to guess correctly! The word was '{random_word}'. X -")
                 print('--------------------------------------------------------------------------------------------------')
-                return # hard exit loop and function
+                # Play again or exit the game
+                play_again = input("Would you like to play again? y / n : ")
+                if play_again == "y":
+                    hangman()
+                elif play_again == "n":
+                    print("That's enough executions for one day. See you next time.")
+                # return # hard exit loop and function
 
             # Ask the user to guess a letter
             guess = input("Choose a letter! ").lower() # Bonus - make the input lower case
@@ -98,15 +110,6 @@ def hangman():
                 print("- Single letters only.")
                 print('-------------------------------------------')
                 continue
-
-    # ===============================================================================================
-    # Play again or exit the game
-    play_again = input("Would you like to play again? y / n : ")
-    if play_again == "y":
-        hangman()
-    else:
-        print("That's enough executions for one day. See you next time.")
-
 
 # Call the function
 hangman()
