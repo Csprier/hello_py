@@ -32,6 +32,14 @@ def hangman():
 
     # How many chances a player has to guess
     chance_count = 3
+
+    # 
+    board = []
+    for i in random_word:
+        board.append("_")
+    print(f"Board: {board}")
+        
+
     # ===============================================================================================
     # Main loop
     # ===============================================================================================
