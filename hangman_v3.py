@@ -19,8 +19,7 @@ def hangman():
     print("======================================================================================")
     # ===============================================================================================
     # Create word list
-    # word_list = ["pickles", "stank", "heck", "meat", "bologna", "apple", "banana"]
-    word_list = ["woot"]
+    word_list = ["pickles", "stank", "heck", "meat", "bologna", "apple", "banana"]
     
     # Randomly choose a word from the list you have created
     random_word = random.choice(word_list)
@@ -100,6 +99,9 @@ def hangman():
                     print(f"- You successfully guessed a letter in the word!")
                     print('-------------------------------------------')
                     user_guesses[guess] = random_word_dict[guess]
+                    # Loop over the length of the random_word
+                        # capture the position of the letter in the random_word
+                            # if the letter is the same as the guessed letter, put the letter on the board in the right position
                     for position in range(len(random_word)):
                         letter = random_word[position]
                         if letter == guess:
