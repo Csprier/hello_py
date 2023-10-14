@@ -33,7 +33,7 @@ def hangman():
     # How many chances a player has to guess
     chance_count = 3
 
-    # 
+    # Board to display guessed letters of the random_word
     board = []
     for i in random_word:
         board.append("_")
@@ -85,7 +85,6 @@ def hangman():
                     print(f"- You successfully guessed a letter in the word!")
                     print('-------------------------------------------')
                     user_guesses[guess] = random_word_dict[guess]
-                    chance_count -= 1
                     continue
                 else: # if no
                     print('-------------------------------------------')
