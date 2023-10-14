@@ -100,4 +100,6 @@ def hangman():
     else:
         print("That's enough executions for one day. See you next time.")
 
+
+# Call the function
 hangman()
